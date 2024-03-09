@@ -13,7 +13,7 @@ import io.ktor.serialization.gson.gson
 
 
 
-class BaseApi {
+open class BaseApi {
     val client = HttpClient(Android) {
         install(ContentNegotiation) {
             gson()
