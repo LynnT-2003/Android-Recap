@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
 
-        view.btnUniversity.setOnClickListener{
+        view.btnUniversity.setOnClickListener {
             val intent = Intent(this, UniversityListActivity::class.java)
             startActivity(intent)
         }
