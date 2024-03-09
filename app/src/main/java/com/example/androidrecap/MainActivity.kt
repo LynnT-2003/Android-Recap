@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view.root)
 
         view.btnUniversity.setOnClickListener{
-//            val intent = Intent(this)
+            val intent = Intent(this, UniversityListActivity::class.java)
+            startActivity(intent)
         }
 
     }
