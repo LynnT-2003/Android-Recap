@@ -3,21 +3,55 @@ package com.example.androidrecap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.androidrecap.data.api.UniversityApi
+import com.example.androidrecap.databinding.ActivityUniversityListBinding
+import com.example.androidrecap.viewModels.UniversityViewModel
 import kotlinx.coroutines.launch
 
 class UniversityListActivity : AppCompatActivity() {
+    // classic
+    private val view: ActivityUniversityListBinding by lazy {
+        ActivityUniversityListBinding.inflate(
+            layoutInflater
+        )
+    }
+
+    //    // lifecycle imports (dunno if it was actually needed lol)
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+//    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    private val viewModel: UniversityViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_university_list)
+        setContentView(view.root) // view.root !
 
-        val api = UniversityApi()
+        // ! We wont be directly using the api
+        // ! We will be using the ViewModel
 
-        lifecycleScope.launch {
-            // Coroutine
-            val response = api.getUniversities()
-            Log.d("API Response", response.toString())
+//        val api = UniversityApi()
+//        // we are going to display this as list/grid
+//
+//        lifecycleScope.launch {
+//            // Coroutine
+//            val response = api.getUniversities()
+//            Log.d("API Response", response.toString())
+//        }
+
+        /*
+        1. Call API
+        2. Get the list of university and put it in RV
+        3. Create and Add Adapter in RV
+         */
+
+        viewModel.getUniversities() // 1. Call API
+
+        // observe for changes in VM as explained
+        viewModel.universities.observe(this) { universities ->
+            // we got the values, now display the values to RV
+            // 2. Get the list of university and put it in RV
+            // But now we need Adapter
         }
     }
 }
