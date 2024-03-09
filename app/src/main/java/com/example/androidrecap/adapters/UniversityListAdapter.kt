@@ -25,9 +25,7 @@ class UniversityListAdapter(private val universities: List<University>) :
         return UniversityViewHolder(binding)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = universities.size
 
     override fun onBindViewHolder(holder: UniversityViewHolder, position: Int) {
         // assign data into viewHolder in this function
