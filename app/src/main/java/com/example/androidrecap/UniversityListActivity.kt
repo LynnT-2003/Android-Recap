@@ -5,8 +5,11 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidrecap.adapters.UniversityListAdapter
 import com.example.androidrecap.data.api.UniversityApi
 import com.example.androidrecap.databinding.ActivityUniversityListBinding
+import com.example.androidrecap.models.University
 import com.example.androidrecap.viewModels.UniversityViewModel
 import kotlinx.coroutines.launch
 
@@ -17,6 +20,8 @@ class UniversityListActivity : AppCompatActivity() {
             layoutInflater
         )
     }
+
+    private val universities: MutableList<University> = mutableListOf()
 
     //    // lifecycle imports (dunno if it was actually needed lol)
 //    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
@@ -41,17 +46,25 @@ class UniversityListActivity : AppCompatActivity() {
 
         /*
         1. Call API
+        1.1 Create and Define Adapter
         2. Get the list of university and put it in RV
-        3. Create and Add Adapter in RV
+        3. Add Adapter in RV
          */
 
         viewModel.getUniversities() // 1. Call API
 
+        view.rvUniversities.adapter = UniversityListAdapter(universities) // 1.1  Define Adapter
+        view.rvUniversities.layoutManager = LinearLayoutManager(this)
+
         // observe for changes in VM as explained
-        viewModel.universities.observe(this) { universities ->
-            // we got the values, now display the values to RV
-            // 2. Get the list of university and put it in RV
-            // But now we need Adapter
+        // we got the values, now display the values to RV
+        // 2. Get the list of university and put it in RV
+        viewModel.universities.observe(this) { universityList ->
+            // display values to rv
+            universities.clear()
+            universities.addAll(universityList) // update the list of universities
+            // tell adapter that values has been updated, render everything again please
+            view.rvUniversities.adapter?.notifyDataSetChanged() // adapter cannot be null
         }
     }
 }
