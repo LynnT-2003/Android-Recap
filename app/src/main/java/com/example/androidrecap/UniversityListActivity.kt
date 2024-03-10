@@ -74,6 +74,21 @@ class UniversityListActivity : AppCompatActivity() {
             view.rvUniversities.adapter?.notifyDataSetChanged() // adapter cannot be null
         }
 
+        /*
+        Instead of doing notifyDataSetChanged and destroying/rebuilding the entire list
+        1. Insert new value
+        2. Edit value
+        3. Delete value
+         */
+
+//        view.rvUniversities.adapter?.notifyItemInserted(10)
+//        view.rvUniversities.adapter?.notifyItemRangeInserted(10,3)
+//
+//        view.rvUniversities.adapter?.notifyItemChanged(19)
+//
+//        view.rvUniversities.adapter?.notifyItemRemoved(10)
+//        view.rvUniversities.adapter?.notifyItemRangeRemoved(10, 3)
+
         viewModel.isLoading.observe(this) { isLoading ->
             view.swipeLayout.isRefreshing = isLoading
         }
