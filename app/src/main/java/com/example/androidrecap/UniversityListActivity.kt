@@ -53,13 +53,20 @@ class UniversityListActivity : AppCompatActivity() {
 
         viewModel.getUniversities() // 1. Call API
 
-        view.rvUniversities.adapter = UniversityListAdapter(universities) // 1.1  Define Adapter
+        view.rvUniversities.adapter = UniversityListAdapter(universities) // 1.1, 3  Define Adapter
         view.rvUniversities.layoutManager = LinearLayoutManager(this)
+
+        // Implementing Swipe Refresh
+        view.swipeLayout.setOnRefreshListener {
+            viewModel.getUniversities()
+        }
 
         // observe for changes in VM as explained
         // we got the values, now display the values to RV
         // 2. Get the list of university and put it in RV
         viewModel.universities.observe(this) { universityList ->
+            Log.d("DAT", "UI Updated from Swipe Refresh")
+            view.swipeLayout.isRefreshing = false
             // display values to rv
             universities.clear()
             universities.addAll(universityList) // update the list of universities
