@@ -52,6 +52,12 @@
 <!--            android:text="Buttom Navigation Example" />-->
 
         <Button
+            android:id="@+id/btnGPS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GPS" />
+
+        <Button
             android:id="@+id/btnApiCall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,17 +93,11 @@
             android:layout_height="wrap_content"
             android:text="Firebase" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btnGPS"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="GPS" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnCamera"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Camera" />-->
+        <Button
+            android:id="@+id/btnCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Camera" />
 
 <!--        <Button-->
 <!--            android:id="@+id/btnNotification"-->
