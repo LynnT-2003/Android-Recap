@@ -37,7 +37,7 @@ class GoogleMapActivity : AppCompatActivity() {
         viewModel.userLocation.observe(this@GoogleMapActivity) {
             Log.d("DAT", "TRIGGEr")
             val latLng = LatLng(it.latitude, it.longitude)
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 0f))
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16f))
         }
     }
 
