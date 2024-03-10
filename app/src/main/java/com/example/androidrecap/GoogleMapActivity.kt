@@ -12,12 +12,17 @@ class GoogleMapActivity : AppCompatActivity() {
             layoutInflater
         )
     }
+
     private lateinit var map: GoogleMap
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
         view.mvGoogleMap.onCreate(savedInstanceState)
+
+        view.mvGoogleMap.getMapAsync{
+            map = it
+        }
     }
 
     override fun onStart() {
@@ -54,4 +59,5 @@ class GoogleMapActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState, outPersistentState)
         view.mvGoogleMap.onSaveInstanceState(outState)
     }
+
 }
