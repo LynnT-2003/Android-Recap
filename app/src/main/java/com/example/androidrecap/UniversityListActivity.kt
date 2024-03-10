@@ -1,5 +1,6 @@
 package com.example.androidrecap
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -31,6 +32,13 @@ class UniversityListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root) // view.root !
+
+//        // Shared Preference (not optimal here)
+//        val sharedPreference = this.getSharedPreferences("test", Context.MODE_PRIVATE)
+//        sharedPreference.getString("name", null)
+//        sharedPreference.edit().apply{
+//            putString("name", "John Doe")
+//        }
 
         // ! We wont be directly using the api
         // ! We will be using the ViewModel
