@@ -7,13 +7,10 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
@@ -27,6 +24,9 @@
         android:theme="@style/Theme.AndroidRecap"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".FirebaseActivity"
+            android:exported="false" />
         <activity
             android:name=".GoogleMapActivity"
             android:exported="false" />
@@ -45,10 +45,10 @@
 
         <meta-data
             android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version"/>
+            android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_map_key"/>
+            android:value="@string/google_map_key" />
     </application>
 
 </manifest>

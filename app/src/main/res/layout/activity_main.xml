@@ -81,11 +81,11 @@
 <!--            android:layout_height="wrap_content"-->
 <!--            android:text="Searchable Recycler" />-->
 
-<!--        <Button-->
-<!--            android:id="@+id/btnFirebase"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Firebase" />-->
+        <Button
+            android:id="@+id/btnFirebase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Firebase" />
 
 <!--        <Button-->
 <!--            android:id="@+id/btnGPS"-->

@@ -30,5 +30,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        view.btnFirebase.setOnClickListener {
+            val intent = Intent(this, FirebaseActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
