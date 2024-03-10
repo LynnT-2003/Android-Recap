@@ -95,7 +95,15 @@ class GoogleMapActivity : AppCompatActivity() {
 
 
                 map.addCircle(
-                    CircleOptions().center(currentLocation).radius(700.0).fillColor(Color.CYAN)
+                    CircleOptions().center(currentLocation).radius(700.0)
+                        .fillColor(
+                            Color.argb(
+                                128,
+                                Color.red(Color.CYAN),
+                                Color.green(Color.CYAN),
+                                Color.blue(Color.CYAN)
+                            )
+                        )
                 )
                 val polyOptions = PolylineOptions()
                 for (location in locations) {
