@@ -15,6 +15,7 @@ class UniversityViewModel : ViewModel() {
     // https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/MVVMPattern.png/500px-MVVMPattern.png
     private val api = UniversityApi()
     val universities: MutableLiveData<List<University>> = MutableLiveData()
+    val isLoading: MutableLiveData<Boolean> = MutableLiveData()
 
     // (1). function to call data
     // (2). update data to middleman here
@@ -22,10 +23,20 @@ class UniversityViewModel : ViewModel() {
     fun getUniversities() { // (1). function to call data
         // IO used in short connections outside application (API Call, Caching, etc.)
         // Main used for long connections
+        showLoading()
         viewModelScope.launch(Dispatchers.IO) {
             // response is a List of University Model Object
             val response = api.getUniversities() // call the API here
             universities.postValue(response) // (2). update data to middleman here
         }
+        dismissLoading()
+    }
+
+    private fun showLoading() {
+        isLoading.postValue(true)
+    }
+
+    private fun dismissLoading() {
+        isLoading.postValue(false)
     }
 }

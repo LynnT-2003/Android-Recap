@@ -66,12 +66,16 @@ class UniversityListActivity : AppCompatActivity() {
         // 2. Get the list of university and put it in RV
         viewModel.universities.observe(this) { universityList ->
             Log.d("DAT", "UI Updated from Swipe Refresh")
-            view.swipeLayout.isRefreshing = false
+
             // display values to rv
             universities.clear()
             universities.addAll(universityList) // update the list of universities
             // tell adapter that values has been updated, render everything again please
             view.rvUniversities.adapter?.notifyDataSetChanged() // adapter cannot be null
+        }
+
+        viewModel.isLoading.observe(this) { isLoading ->
+            view.swipeLayout.isRefreshing = isLoading
         }
     }
 }
