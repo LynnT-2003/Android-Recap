@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidRecap</string>
+    <string name="google_map_key">AIzaSyCiXLRjrnqK5EdyBO1p-SFOOJvBBnUmEmk</string>
 </resources>
