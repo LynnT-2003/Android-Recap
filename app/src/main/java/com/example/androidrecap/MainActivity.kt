@@ -60,5 +60,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        view.btnNotification.setOnClickListener {
+            val intent = Intent(this, NotificationActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

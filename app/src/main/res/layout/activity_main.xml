@@ -99,11 +99,11 @@
             android:layout_height="wrap_content"
             android:text="Camera" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btnNotification"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Notification" />-->
+        <Button
+            android:id="@+id/btnNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notification" />
 
         <Button
             android:id="@+id/btnGoogleMap"
