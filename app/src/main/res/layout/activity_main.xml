@@ -45,11 +45,11 @@
             android:layout_height="wrap_content"
             android:text="Fragment A.2" />
 
-<!--        <Button-->
-<!--            android:id="@+id/btnButtomNavigation"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Buttom Navigation Example" />-->
+        <Button
+            android:id="@+id/btnButtomNavigation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bottom Navigation" />
 
         <Button
             android:id="@+id/btnGPS"
