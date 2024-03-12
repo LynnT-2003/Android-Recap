@@ -45,7 +45,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        view.btnFragment1.setOnClickListener {
+            val intent = Intent(this, Fragment1Activity::class.java)
+            startActivity(intent)
+        }
 
     }
 }
