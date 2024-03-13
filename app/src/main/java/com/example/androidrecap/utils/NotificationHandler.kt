@@ -1,5 +1,6 @@
 package com.example.androidrecap.utils
 
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationChannelGroup
 import android.app.NotificationManager
@@ -22,7 +23,7 @@ object NotificationHandler {
             manager.createNotificationChannelGroup(channelGroup)
 
             // channel
-            AppNotificationChannels.entries.forEach{
+            AppNotificationChannels.entries.forEach {
                 val channel = NotificationChannel(it.id, it.notiName, it.importance)
                 channel.group = channelGroup.id
                 manager.createNotificationChannel(channel)

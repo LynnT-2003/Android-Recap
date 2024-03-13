@@ -10,6 +10,7 @@ import android.os.Bundle
 import androidx.core.app.NotificationCompat
 import com.example.androidrecap.databinding.ActivityNotificationBinding
 import com.example.androidrecap.utils.AppNotificationChannels
+import com.example.androidrecap.utils.NotificationHandler
 import com.example.androidrecap.utils.PermissionHandler
 
 class NotificationActivity : AppCompatActivity() {
@@ -23,7 +24,7 @@ class NotificationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(view.root)
-        PermissionHandler.requestPermissions(this, PermissionHandler.NOTIFICATION)
+        PermissionHandler.requestPermissionIfRequired(this, PermissionHandler.NOTIFICATION)
 
         view.btnTriggerNoti.setOnClickListener {
             // create 2 notifications
